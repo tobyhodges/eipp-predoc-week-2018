@@ -1,0 +1,4 @@
+advanced/webpages*
+introductory/exercise_plan.md
+*.ipynb_checkpoints*
+*.DS_Store*
