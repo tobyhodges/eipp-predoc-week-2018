@@ -1,2 +1,3 @@
-# eipp-predoc-week-2018
+# EMBL Predoc Week Training Material
+
 Material for Predoc Training Sessions at EMBL-EBI, November 2018
