@@ -8,7 +8,7 @@ import sys
 ###############################################################################
 
 def MDheader(string, level=4):
-    return(f'{level*"#"} {string}')
+    return(f'#### {string}')
 
 def MDbold(string):
     return(f'**{string}**')
@@ -17,7 +17,7 @@ def MDitalic(string):
     return(f'*{string}*')
 
 def MDstrikethrough(string):
-    return(f'~~{string}~~')
+    return(f'~{string}~')
 
 def MDlink(string, target_url):
     return(f'[{string}]({target_url})')
