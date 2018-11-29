@@ -79,24 +79,25 @@ def match_publication_info(string):
 # Main
 ###############################################################################
 
-infile = sys.argv[1]
-entries_by_year = {}
+if __name__ == '__main__':
+    infile = sys.argv[1]
+    entries_by_year = {}
 
-with open(infile, 'r') as infh:
-    info_string = ''
-    for line in infh.readlines():
-        line = line.strip()
-        if line:
-            info_string += f'{line} '
-        elif info_string:
-            info = match_publication_info(info_string)
-            year, entry = output_formatted_entry(*info)
-            if year in entries_by_year:
-                entries_by_year[year].append(entry)
-            else:
-                entries_by_year[year] = [entry]
-            info_string = ''
+    with open(infile, 'r') as infh:
+        info_string = ''
+        for line in infh.readlines():
+            line = line.strip()
+            if line:
+                info_string += f'{line} '
+            elif info_string:
+                info = match_publication_info(info_string)
+                year, entry = output_formatted_entry(*info)
+                if year in entries_by_year:
+                    entries_by_year[year].append(entry)
+                else:
+                    entries_by_year[year] = [entry]
+                info_string = ''
 
-for year, entries in entries_by_year.items():
-    sys.stdout.write(f'{MDheader(year, level=2)}\n\n')
-    sys.stdout.write(f'{MDlist(entries)}\n')
+    for year, entries in entries_by_year.items():
+        sys.stdout.write(f'{MDheader(year, level=2)}\n\n')
+        sys.stdout.write(f'{MDlist(entries)}\n')
